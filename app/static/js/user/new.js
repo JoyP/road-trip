@@ -9,19 +9,19 @@
   });
 
   function addTrip(e){
-    var origin        = $('#origin').val(),
-        destination   = $('#destination').val();
+    var origin        = $('#originName').val(),
+        destination   = $('#destinationName').val();
 
 
     geocode(origin, function(name, lat, lng){
-      $('#origin').val(name);
+      $('#originName').val(name);
       $('#beginLat').val(lat);
       $('#beginLng').val(lng);
       console.log(name);
       console.log(lat);
 
       geocode(destination, function(name, lat, lng){
-        $('#destination').val(name);
+        $('#destinationName').val(name);
         $('#endLat').val(lat);
         $('#endLng').val(lng);
         console.log(name);

@@ -17,11 +17,11 @@ block content
           label(for='cash') Enter Amount of Cash
           input.form-control#cash(type='text', name='cash', placeholder='1000')
         .form-group
-          label(for='origin') Enter Origin City
-          input.form-control#origin(type='text', name='origin', placeholder='Nashville, TN')
+          label(for='originName') Enter Origin City
+          input.form-control#originName(type='text', name='originName', placeholder='Nashville, TN')
         .form-group
-          label(for='destination') Enter Destination City
-          input.form-control#destination(type='text', name='destination', placeholder='Las Vegas, NV')
+          label(for='destinationName') Enter Destination City
+          input.form-control#destinationName(type='text', name='destinationName', placeholder='Las Vegas, NV')
         .form-group
           label(for='carPhoto') Upload Photo of Car
           input.form-control#carPhoto(type='file', name='carPhoto')
@@ -38,7 +38,7 @@ block content
           input.form-control#mpg(type='text', name='mpg', placeholder='35')
         .form-group
           label(for='gasPrice') Enter Price of Gas per Gallon
-          input.form-control#gasPrice(type='text', name'gasPrice', placeholder='3.40')
+          input.form-control#gasPrice(type='text', name='gasPrice', placeholder='3.40')
       button.btn-lg.btn-primary(type='submit' form='myForm') Save Trip!
 
 block scripts
