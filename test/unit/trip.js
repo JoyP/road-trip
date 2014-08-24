@@ -45,20 +45,21 @@ describe('Trip', function(){
                     originalFilename: 'car.jpg'}]
           };
 
-      Trip.create(trip, file, function(){
-        expect(trip).to.be.instanceof(Trip);
-        expect(trip._id).to.be.instanceof(Mongo.ObjectID);
-        expect(trip.tripName).to.equal('Las Vegas');
-        expect(trip.cash).to.equal(1000);
-        expect(trip.origin.name).to.equal('Nashville, TN, USA');
-        expect(trip.destination.name).to.equal('Las Vegas, NV, USA');
+      Trip.create(trip, file, function(t){
+        console.log('t in test file:', t);
+//        console.log('done in test file:', done);
+        expect(t._id).to.be.instanceof(Mongo.ObjectID);
+        expect(t.tripName).to.equal('Las Vegas');
+        expect(t.cash).to.equal(1000);
+        expect(t.origin.name).to.equal('Nashville, TN, USA');
+        expect(t.destination.name).to.equal('Las Vegas, NV, USA');
 
-        expect(trip.mpg).to.equal(35);
-        expect(trip.gasPrice).to.equal(3.40);
+        expect(t.mpg).to.equal(35);
+        expect(t.gasPrice).to.equal(3.40);
 
 
-        expect(trip.stops).to.have.length(0);
-        expect(trip.photos).to.have.length(0);
+        expect(t.stops).to.have.length(0);
+        expect(t.photos).to.have.length(0);
         done();
       });
     });
