@@ -26,9 +26,8 @@ Object.defineProperty(Trip, 'collection', {
 
 Trip.create = function(fields, file, cb){
   var t = new Trip(fields);
-  console.log('t in create function, after create:', t);
   t.saveCarPic(file);
-  Trip.collection.save(t,cb);
+  Trip.collection.save(this,cb);
 };
 
 Trip.all = function(cb){

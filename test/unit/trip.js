@@ -8,7 +8,7 @@ var expect    = require('chai').expect,
     dbConnect = require('../../app/lib/mongodb'),
     Mongo     = require('mongodb'),
     cp        = require('child_process'),
-    db        = 'trips-test';
+    db        = 'testTrips';
 
 describe('Trip', function(){
   before(function(done){
@@ -19,6 +19,7 @@ describe('Trip', function(){
 
   beforeEach(function(done){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [db], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
+      console.log('clean db log:', stdout, stderr);
       done();
     });
   });
@@ -41,25 +42,23 @@ describe('Trip', function(){
           },
           file  = {carPhoto:
                     [{fieldName:'carPhoto',
-                    originalFilename: ''}]
+                    originalFilename: 'car.jpg'}]
           };
 
-      Trip.create(trip, file, function(err,t){
-        console.log('t in test file:', t);
-        console.log('err in test file:', err);
-        expect(t).to.be.instanceof(Trip);
-        expect(t._id).to.be.instanceof(Mongo.ObjectID);
-        expect(t.tripName).to.equal('Las Vegas');
-        expect(t.cash).to.equal(1000);
-        expect(t.origin.name).to.equal('Nashville, TN, USA');
-        expect(t.destination.name).to.equal('Las Vegas, NV, USA');
+      Trip.create(trip, file, function(){
+        expect(trip).to.be.instanceof(Trip);
+        expect(trip._id).to.be.instanceof(Mongo.ObjectID);
+        expect(trip.tripName).to.equal('Las Vegas');
+        expect(trip.cash).to.equal(1000);
+        expect(trip.origin.name).to.equal('Nashville, TN, USA');
+        expect(trip.destination.name).to.equal('Las Vegas, NV, USA');
 
-        expect(t.mpg).to.equal(35);
-        expect(t.gasPrice).to.equal(3.40);
+        expect(trip.mpg).to.equal(35);
+        expect(trip.gasPrice).to.equal(3.40);
 
 
-        expect(t.stops).to.have.length(0);
-        expect(t.photos).to.have.length(0);
+        expect(trip.stops).to.have.length(0);
+        expect(trip.photos).to.have.length(0);
         done();
       });
     });

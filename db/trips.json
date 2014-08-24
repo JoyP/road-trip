@@ -7,7 +7,7 @@
   "startDate":"2014-08-25 00:00:00.000Z",
   "endDate":"2014-08-30 00:00:00.000Z",
   "mpg":35,
-  "gasPrice":3.40
+  "gasPrice":3.40,
   "carPhoto":"img/gold.jpg",
   "stops":[],
   "photos":[]
@@ -22,7 +22,7 @@
   "startDate":"2014-08-25 00:00:00.000Z",
   "endDate":"2014-08-30 00:00:00.000Z",
   "mpg":35,
-  "gasPrice":3.40
+  "gasPrice":3.40,
   "carPhoto":"img/gold.jpg",
   "stops":[],
   "photos":[]
@@ -37,7 +37,7 @@
   "startDate":"2014-08-25 00:00:00.000Z",
   "endDate":"2014-08-30 00:00:00.000Z",
   "mpg":35,
-  "gasPrice":3.40
+  "gasPrice":3.40,
   "carPhoto":"img/gold.jpg",
   "stops":[],
   "photos":[]
