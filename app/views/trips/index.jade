@@ -1,6 +1,54 @@
 extends ../shared/template
 block content
   h2 Trips
+  .row
+    .col-xs-12
+      table.table
+        thead
+          tr
+            th Trip Name
+            th Cash
+            th Origin
+            th Destination
+            th Start Date
+            th End Date
+            th Stops
+            th Total Distance
+            th MPG
+            th Gas Price
+            th Gallons
+            th Gas Total Cost
+            th Delta
+            th Photos
+            th Events
+        tbody
+          each trip in trips
+            tr(data-name=trip.tripName,
+              data-cash=trip.cash,
+              data-origin=trip.originName,
+              data-destination=trip.destinationName,
+              data-start=trip.startDate,
+              data-end=trip.endDate,
+              data-stops=trip.stops,
+              data-mpg=trip.mgp,
+              data-gasPrice=trip.gasPrice,
+              data-photos=trip.photos,
+              data-events=trip.events)
+              td: a(href="/trips/#{trip._id}")= trip.tripName
+              td= trip.cash
+              td= moment(trip.startDate).format('MM/DD/YYYY')
+              td= moment(trip.endDate).format('MM/DD/YYYY')
+              td= trip.origin.originName
+              td= trip.destination.destinationName
+              td= trip.stops.length
+              td
+              td= trip.mpg
+              td= trip.gasPrice
+              td
+              td
+              td
+              td= trip.photos.length
+              td= trip.events.length
 
 block scripts
   script(src='/js/user/main.js')

@@ -82,7 +82,6 @@ describe('Trip', function(){
     it('should find an item by its ID', function(done){
       t = Trip.create(fields, {carPhoto: [{path:''}]}, function(){
         Trip.findById(t._id, function(err, foundTrip){
-          console.log('foundTrip:', foundTrip);
           expect(foundTrip).to.be.instanceof(Trip);
           expect(foundTrip.tripName).to.equal('Las Vegas');
           done();
